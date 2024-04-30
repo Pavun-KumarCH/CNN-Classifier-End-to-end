@@ -12,4 +12,3 @@ joblib
 types-PyYAML
 scipy
 -e .
- 

@@ -21,6 +21,7 @@ list_of_files = [
     "setup.py",
     "research/trail.ipynb",
     "main.py"
+    ""
 
 ]
 

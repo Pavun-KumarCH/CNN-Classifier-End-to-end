@@ -7,7 +7,7 @@ __verion__ = "0.0.0"
 
 REPO_NAME = "CNN-Classifier-End-to-end"
 AUTHOR_USER_NAME = "Pavun-KumarCH"
-SRC_REPO = "CNN-CLASSIFIER"
+SRC_REPO = "CNN_CLASSIFIER"
 AUTHOR_EMAIL = "pavun9848@gmail.com"
 
 setuptools.setup(
