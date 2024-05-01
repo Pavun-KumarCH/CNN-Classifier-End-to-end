@@ -1,4 +1,5 @@
 import os 
+from tabnanny import verbose
 from box.exceptions import BoxValueError #$ which gives were the error is located in line
 import yaml
 from CNN_CLASSIFIER import logger #$
@@ -10,7 +11,7 @@ from pathlib import Path
 from typing import Any
 
 @ensure_annotations
-def read_ymal(path_to_yaml: Path) -> ConfigBox:
+def read_yaml(path_to_yaml: Path) -> ConfigBox:
     """reads yaml file and returns
     
     Args:
