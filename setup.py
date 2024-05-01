@@ -18,10 +18,11 @@ setuptools.setup(
     description= "A Small python package for CNN app",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url = f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}",
+    url = "https://github.com/Pavun-KumarCH/CNN-Classifier-End-to-end",
     project_urls = {
-        "Bug Tracker": f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}/issues",   
+        "Bug Tracker": "https://github.com/Pavun-KumarCH/CNN-Classifier-End-to-end/issues",   
     },
     package_dir = {"": "src"},
     packages = setuptools.find_packages(where="src")
 )
+

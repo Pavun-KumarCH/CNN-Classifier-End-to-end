@@ -1,5 +1,4 @@
 import os 
-from tabnanny import verbose
 from box.exceptions import BoxValueError #$ which gives were the error is located in line
 import yaml
 from CNN_CLASSIFIER import logger #$
@@ -9,6 +8,7 @@ from ensure import ensure_annotations #$
 from box import ConfigBox #$
 from pathlib import Path 
 from typing import Any
+import base64
 
 @ensure_annotations
 def read_yaml(path_to_yaml: Path) -> ConfigBox:
@@ -24,7 +24,7 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
     Returns:
            ConfigBox: ConfigBox type
     """
-
+  
     try:
         with open(path_to_yaml) as yaml_file:
             content = yaml.safe_load(yaml_file)
@@ -131,3 +131,14 @@ def get_size(path: Path) -> str:
     """
     size = round(os.path.getsize(path)/1024)
     return f"~ {size} KB"
+
+
+def decodeImage(Imagestring, fileName):
+    imgdata = base64.b64decode(imgstring)
+    with open(fileName,'wb') as f:
+        f.write(imgdata)
+        f.close()
+
+def encodeImageIntoBase64(croppedImagePath):
+    with open(croppedImagePath, "rb") as f:
+        return base64.b64encode(f.read())
