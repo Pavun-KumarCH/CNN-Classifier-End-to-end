@@ -1,1 +1,2 @@
 from CNN_CLASSIFIER.components.data_ingestion import DataIngestion
+from  CNN_CLASSIFIER.components.base_model_comp import BaseModel
