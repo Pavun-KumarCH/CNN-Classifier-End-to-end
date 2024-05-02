@@ -3,7 +3,8 @@ from pathlib import Path
 from CNN_CLASSIFIER.constants import *
 from CNN_CLASSIFIER.utils import read_yaml, create_directories
 from CNN_CLASSIFIER.entity import (DataIngestionConfig,
-                                   BaseModelConfig)
+                                   BaseModelConfig,
+                                   CallbackConfig)
 
 class ConfigurationManager:
     def __init__(
@@ -30,6 +31,7 @@ class ConfigurationManager:
         )
 
         return data_ingestion_config
+    
     def get_base_model_config(self) -> BaseModelConfig:
         config = self.config.base_model
 
@@ -46,3 +48,18 @@ class ConfigurationManager:
             params_classes = self.params.CLASSES,
         )
         return base_model_config
+    
+    def get_callbacks_config(self) -> CallbackConfig:
+        config = self.config.callbacks
+        model_ckpt_dir = os.path.dirname(config.checkpoint_model_filepath)
+        create_directories([
+            Path(model_ckpt_dir),
+            Path(config.tensorflow_root_log_dir)
+        ])
+
+        callback_config = CallbackConfig(
+            root_dir = Path(config.root_dir),
+            tensorflow_root_log_dir = Path(config.tensorflow_root_log_dir),
+            checkpoint_model_filepath = Path(config.checkpoint_model_filepath)
+        )
+        return callback_config
