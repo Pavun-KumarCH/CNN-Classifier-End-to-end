@@ -3,6 +3,9 @@ from CNN_CLASSIFIER.components import Training,PrepareCallback
 from CNN_CLASSIFIER import logger
 
 class ModelTrainingPipeline:
+    def __init__(self) -> None:
+        pass
+    
     def main(self):
         # Callbacks
         config = ConfigurationManager() 
