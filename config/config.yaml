@@ -17,3 +17,6 @@ callbacks:
   tensorflow_root_log_dir: artifacts/callbacks/tensorflow_log_dir
   checkpoint_model_filepath: artifacts/callbacks/checkpoint_dir/model.h5
 
+training:
+  root_dir: artifacts/training
+  trained_model_path: artifacts/training/model.h5
