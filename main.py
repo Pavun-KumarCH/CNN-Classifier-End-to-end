@@ -1,7 +1,6 @@
 from CNN_CLASSIFIER.pipeline.stage01_data_ingestion import DataIngestionTrainningPipeline
 from CNN_CLASSIFIER.pipeline.stage02_base_model import BaseModelTrainningPipeline
-from CNN_CLASSIFIER.pipeline.stage03_callbacks import CallBacksPipeline
-from CNN_CLASSIFIER.pipeline.stage04_training import TrainingPipeline
+from CNN_CLASSIFIER.pipeline.stage03_training import ModelTrainingPipeline
 
 from CNN_CLASSIFIER import logger
 
@@ -25,21 +24,11 @@ except Exception as e:
     logger.exception(e)
     raise e
 
-Stage_name = "######### Call Backs Stage ###########"
+Stage_name = "######### Model Training Stage ###########"
 try:
+    logger.info(f"*******************************************")
     logger.info(f">>>>>>>>>>> {Stage_name} started <<<<<<<<<<")
-    base_model = CallBacksPipeline()
-    base_model.main()
-    logger.info(f">>>>>>>>>>> {Stage_name} completed <<<<<<<<<<")
-except Exception as e:
-    logger.exception(e)
-    raise e
-
-
-Stage_name = "######### Training Stage ###########"
-try:
-    logger.info(f">>>>>>>>>>> {Stage_name} started <<<<<<<<<<")
-    base_model = TrainingPipeline()
+    base_model = ModelTrainingPipeline()
     base_model.main()
     logger.info(f">>>>>>>>>>> {Stage_name} completed <<<<<<<<<<")
 except Exception as e:
